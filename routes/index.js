@@ -1,0 +1,14 @@
+const path = require("path");
+const router = require("express").Router();
+const apiRoutes = require("./api");
+
+// API Routes
+console.log("Session: ___l")
+router.use("/api", apiRoutes); //takes an api call and routes it to ./api/index
+
+// If no API routes are hit, send the React app
+router.use(function(req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
+module.exports = router;
