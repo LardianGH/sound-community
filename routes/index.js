@@ -3,7 +3,6 @@ const router = require("express").Router();
 const apiRoutes = require("./api");
 
 // API Routes
-console.log("Session: ___l")
 router.use("/api", apiRoutes); //takes an api call and routes it to ./api/index
 
 // If no API routes are hit, send the React app

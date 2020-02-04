@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/LardianGH/sound-community#readme",
   "dependencies": {
+    "aws-sdk": "^2.610.0",
     "axios": "^0.19.1",
     "connect-mongo": "^3.2.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "mongoose": "^5.8.6",

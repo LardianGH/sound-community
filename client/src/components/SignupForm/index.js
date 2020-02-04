@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./style.css"
-class Signup extends Component {
+class SignupForm extends Component {
 
     state = { //All the variables that will change
         userName: "",
@@ -75,7 +75,7 @@ render() {
 };
 };
 
-export default Signup;
+export default SignupForm;
   /*
   import React from "react";
 

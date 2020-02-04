@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Signup from "../components/Signup";
+import SignupForm from "../components/SignupForm";
 import API from "../utils/API";
 
-class LoginSignup extends Component {
+class Signup extends Component {
 
 state = {
   returnedName: "",
@@ -36,12 +36,12 @@ render() {
   return (
     <div>
     {this.props.returnedName}
-     <Signup
+     <SignupForm
      handleSignupSubmit = {this.handleSignupSubmit}
-     ></Signup>
+     ></SignupForm>
      </div>
   );
 }
 }
 
-export default LoginSignup;
+export default Signup;
