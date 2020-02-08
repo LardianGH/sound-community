@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
-import axios from 'axios';
 
 class S3 extends Component {
   constructor(props){
@@ -24,8 +23,8 @@ class S3 extends Component {
     let fileType = fileParts[1];
     console.log("Preparing the upload");
     API.fileupload({
-      fileName : fileName,
-      fileType : fileType
+      fileName,
+      fileType
     })
     .then(response => {
       var returnData = response.data.data.returnData;
@@ -40,7 +39,11 @@ class S3 extends Component {
           'Content-Type': fileType
         }
       };
-      axios.put(signedRequest,file,options)
+      API.sendRequest({
+          signedRequest,
+          file,
+          options
+        })
       .then(result => {
         console.log("Response from s3")
         this.setState({success: true});

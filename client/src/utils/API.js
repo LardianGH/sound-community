@@ -9,5 +9,11 @@ saveUser: function(userData) {
   fileupload: function(fileData) {
     console.log(fileData)
     return axios.post("/api/users/fileupload", fileData)
+  },
+  sendRequest: function(request) {
+    console.log(request.signedRequest)
+    console.log(request.file)
+    console.log(request.options)
+    return axios.put(request.signedRequest, request.file, request.options)
   }
 };

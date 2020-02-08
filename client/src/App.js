@@ -9,7 +9,7 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={S3} />
+          <Route exact path="/" component={Browse} />
         </Switch>
       </div>
     </Router>
