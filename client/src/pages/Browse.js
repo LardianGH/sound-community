@@ -5,31 +5,39 @@ import Header from "../components/Header";
 import {Howl, Howler} from 'howler';
 
 class Browse extends Component {
-  // Setting this.state.cards to the cards json array
+
   state = {
     sound: {},
     setSound: {}
   };
 
   playSound = () => {
+    console.log("playsound")
     var id = this.state.sound.play();
-    (console.log(this.state.sound.playing(id)))
+    console.log(this.state.sound.playing(id))
     console.log(id)
     if (this.state.sound.playing(id) === true) {
-      console.log("Pausing")
-      this.state.sound.pause(id);
+      console.log("Stopping")
+      this.state.sound.stop();
+      this.state.sound.unload();
+      this.setState({
+        sound: {},
+        setSound: {}
+      })
     } else {
+      console.log("Right before sound.play()")
       this.state.sound.play();
     }
   }
 
   loadSound = (selectedSound) => {
     console.log(selectedSound)
+    console.log("No you wont")
     this.setState({sound: new Howl({
       src: [selectedSound]
-    }, () => this.playSound())
-  });
-  }
+    })}, () => this.playSound()
+    )};
+  
 
   soundSetup = (selectedSound) => {
     //setsound here.
@@ -37,21 +45,28 @@ class Browse extends Component {
     //perhaps have a current sound and set to selectedSound?
     console.log(this.state.sound)
     console.log(this.state.setSound)
-    if (this.state.sound !== {} && this.state.sound === this.state.setSound) {
+    if (this.state.setSound !== {} && this.state.setSound === selectedSound) { 
+      //if you click the same audio file again.
       console.log("playing")
-      this.playSound()
+      this.playSound() //it will play without loading a new file
     }
-    else if ((this.state.sound !== this.state.setSound) || (this.state.sound === {} && this.state.sound === this.state.setSound)) {
+    else if ((selectedSound !== this.state.setSound) || (this.state.sound === {} && selectedSound === this.state.setSound)) { 
+      //if you click on a new file
       console.log("loading")
-      this.loadSound(selectedSound)
+      this.setState({setSound: selectedSound}, () =>  this.loadSound(selectedSound)); //it will load that sound
     }
     else {
-      console.log("some error happened")
+      console.log("some error happened") //This should never happen
       console.log(this.state.sound)
       console.log(this.state.setSound)
     }
   }
 
+/*
+playSound = (selectedSound) => {
+
+}
+*/
   // Map over this.state.cards and render a cardCard component for each card object
   render() {
     return (
@@ -69,21 +84,21 @@ class Browse extends Component {
             id={44}
             key={2}
             soundSetup={this.soundSetup}
-            sound={"assets/Recording.m4a"}
+            sound={"assets/Recording2.m4a"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
            <Card
             id={34}
             key={3}
             soundSetup={this.soundSetup}
-            sound={"assets/Recording.m4a"}
+            sound={"assets/Recording3.m4a"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
            <Card
             id={45}
             key={4}
             soundSetup={this.soundSetup}
-            sound={"assets/Recording.m4a"}
+            sound={"assets/Recording4.m4a"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
            <Card
