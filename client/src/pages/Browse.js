@@ -8,27 +8,31 @@ class Browse extends Component {
 
   state = {
     sound: {},
-    setSound: {}
+    lastSound: null
   };
 
   playSound = () => {
-    console.log("playsound")
-    var id = this.state.sound.play();
-    console.log(this.state.sound.playing(id))
-    console.log(id)
-    if (this.state.sound.playing(id) === true) {
-      console.log("Stopping")
-      this.state.sound.stop();
-      this.state.sound.unload();
-      this.setState({
-        sound: {},
-        setSound: {}
-      })
-    } else {
-      console.log("Right before sound.play()")
-      this.state.sound.play();
+   let id = this.state.sound.play()
+
+   console.log(this.state.sound)
+   console.log(this.state.lastSound)
+   
+if (this.state.lastSound !== null) {
+  console.log("lastSound exists")
+      console.log(this.state.lastSound);
+      this.state.lastSound.stop()
     }
+      
+      this.state.sound.play();
+
+      console.log("played")
+
+      let lastSound = this.state.sound
+      this.setState({lastSound: lastSound}, () =>  console.log(this.state.lastSound));
+    
   }
+
+  //if (this.state.sound.playing(id) === true) {}
 
   loadSound = (selectedSound) => {
     console.log(selectedSound)
@@ -40,25 +44,25 @@ class Browse extends Component {
   
 
   soundSetup = (selectedSound) => {
-    //setsound here.
-    //setSound is the last played file, if the setSound and sound do not match, then a new sound file is loaded
-    //perhaps have a current sound and set to selectedSound?
+    
     console.log(this.state.sound)
-    console.log(this.state.setSound)
-    if (this.state.setSound !== {} && this.state.setSound === selectedSound) { 
+    console.log(this.state.lastSound)
+    if (this.state.lastSound !== {} && this.state.lastSound === selectedSound) { 
       //if you click the same audio file again.
       console.log("playing")
       this.playSound() //it will play without loading a new file
     }
-    else if ((selectedSound !== this.state.setSound) || (this.state.sound === {} && selectedSound === this.state.setSound)) { 
+    else if ((selectedSound !== this.state.lastSound) || (this.state.sound === {} && selectedSound === this.state.lastSound)) {
+      //runs is selectedSound and lastSound are different or if they are both empty objects 
       //if you click on a new file
       console.log("loading")
-      this.setState({setSound: selectedSound}, () =>  this.loadSound(selectedSound)); //it will load that sound
+      this.loadSound(selectedSound)
     }
+   
     else {
       console.log("some error happened") //This should never happen
       console.log(this.state.sound)
-      console.log(this.state.setSound)
+      console.log(this.state.lastSound)
     }
   }
 
