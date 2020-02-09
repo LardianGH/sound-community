@@ -8,7 +8,7 @@ const Card = props => (
       <img alt={props.name} src={props.image}/>
     </div>
     <div>
-      <div className=""/>
+      <div className="content"> {props.name} </div>
     </div>
   </div>
 );
