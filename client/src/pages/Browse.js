@@ -75,81 +75,73 @@ playSound = (selectedSound) => {
           <Card
             id={42}
             key={1}
-            name={"water"}
+            name={"car_honking"}
             soundSetup={this.soundSetup}
-            sound={"assets/Recording.m4a"}
+            sound={"assets/car_honking.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
            <Card
             id={44}
             key={2}
-            name={"explosion"}
+            name={"door_closing"}
             soundSetup={this.soundSetup}
-            sound={"assets/Recording2.m4a"}
+            sound={"assets/door_closing.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
            <Card
             id={34}
             key={3}
-            name={"laser sword"}
+            name={"door_slam"}
             soundSetup={this.soundSetup}
-            sound={"assets/Recording3.m4a"}
+            sound={"assets/door_slam.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
            <Card
             id={45}
             key={4}
-            name={"bomboclaat"}
+            name={"dun_dun_dunnn"}
             soundSetup={this.soundSetup}
-            sound={"assets/Recording4.m4a"}
+            sound={"assets/dun_dun_dunnn.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
            <Card
             id={43}
             key={5}
-            name={"water"}
+            name={"let_me_take_a_selfie"}
             soundSetup={this.soundSetup}
-            sound={"assets/Recording.m4a"}
+            sound={"assets/let_me_take_a_selfie.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
         <Card
             id={66}
             key={6}
-            name={"water"}
+            name={"meeemes"}
             soundSetup={this.soundSetup}
-            sound={"assets/Recording.m4a"}
+            sound={"assets/meeemes.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
            <Card
             id={467}
             key={7}
-            name={"explosion"}
+            name={"phone_beep"}
             soundSetup={this.soundSetup}
-            sound={"assets/Recording2.m4a"}
+            sound={"assets/phone_beep.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
            <Card
             id={31}
             key={8}
-            name={"laser sword"}
+            name={"streets_of_fire"}
             soundSetup={this.soundSetup}
-            sound={"assets/Recording3.m4a"}
+            sound={"assets/streets_of_fire.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
            <Card
             id={40}
             key={9}
-            name={"bomboclaat"}
+            name={"trouble_coldplay_intro"}
             soundSetup={this.soundSetup}
-            sound={"assets/Recording4.m4a"}
-            image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
-          />
-           <Card
-            id={444}
-            key={10}
-            name={"water"}
-            soundSetup={this.soundSetup}
-            sound={"assets/Recording.m4a"}
+            sound={"assets/trouble_coldplay_intro.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
         

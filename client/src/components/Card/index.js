@@ -8,7 +8,10 @@ const Card = props => (
       <img alt={props.name} src={props.image}/>
     </div>
     <div>
-      <div className="content"> {props.name} </div>
+      <div className="content">
+         <div>{props.name}</div> 
+         <div> <a href={props.sound} download={props.name}>Download</a> </div> 
+      </div>
     </div>
   </div>
 );

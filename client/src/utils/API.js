@@ -15,5 +15,10 @@ saveUser: function(userData) {
     console.log(request.file)
     console.log(request.options)
     return axios.put(request.signedRequest, request.file, request.options)
+  },
+
+  s3Send: function(file) {
+console.log(file)
+return axios.post("/api/users/profile-img-upload", file)
   }
 };
