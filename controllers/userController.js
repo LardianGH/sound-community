@@ -69,7 +69,7 @@ profileImgUpload( req, res, ( error ) => {
   console.log("After multer ------------------------------------")
   console.log(req)
 
-  //console.log( 'requestOkokok', req.body);
+  console.log( 'requestOkokok', req.file);
   console.log( 'error', error );
   if( error ){
     console.log( 'errors', error );

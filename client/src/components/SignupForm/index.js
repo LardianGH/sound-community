@@ -6,7 +6,6 @@ class SignupForm extends Component {
         userName: "",
         password: "",
         email: "",
-        
       };
 
 handleFileUpload = event => {

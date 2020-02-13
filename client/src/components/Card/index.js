@@ -10,7 +10,7 @@ const Card = props => (
     <div>
       <div className="content">
          <div>{props.name}</div> 
-         <div> <a href={props.sound} download={props.name}>Download</a> </div> 
+         <div> <a href={props.sound} download={props.name}>Download {props.fileType}</a> </div> 
       </div>
     </div>
   </div>

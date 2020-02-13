@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Card from "../components/Card";
+import Scroll from "../components/Scroll"
 import Wrapper from "../components/Wrapper";
 import Header from "../components/Header";
 import {Howl, Howler} from 'howler';
@@ -39,6 +40,7 @@ class Browse extends Component {
   
 
   soundSetup = (selectedSound) => {
+    console.log(selectedSound)
     /* If a new sound is clicked (the selected sound is different from the last selected sound), a new Howl will be loaded, 
     otherwise, the sound will be played without having to load a new Howl*/
     
@@ -66,16 +68,36 @@ playSound = (selectedSound) => {
 
 }
 */
+
+getFilePart = (filePath, part) => {
+  //console.log("Getting file" + part)
+  const splitFile = filePath.split(".")
+  if (part === "type") return splitFile[1]
+  else {
+    /* WARNING ---
+    Development only, change to split on "-" (to get rid of the extra tag from s3)
+    and return fileName[0] because it comes before the "-", this is only set up to deal with "Assets/{filename}"
+    --- WARNING */
+    const fileName = splitFile[0].split("/")
+    return fileName[1]
+    //ADDITION -- maybe get rid of the "_" unless it looks nice, but probably better if gone.
+
+    //Individuals naming the files they upload is very important, block numbers, "-"s, and more than one ., "_" substitute spaces
+    //EX: "car_honking.mp3" => "car honking"
+  }
+}
+
   // Map over this.state.cards and render a cardCard component for each card object
   render() {
     return (
       <Wrapper>
         <Header>Welcome to my Soundboard!</Header>
-        
+        <Scroll>
           <Card
             id={42}
             key={1}
-            name={"car_honking"}
+            fileType={this.getFilePart("assets/car_honking.mp3", "type")}
+            name={this.getFilePart("assets/car_honking.mp3", "name")}
             soundSetup={this.soundSetup}
             sound={"assets/car_honking.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
@@ -83,7 +105,8 @@ playSound = (selectedSound) => {
            <Card
             id={44}
             key={2}
-            name={"door_closing"}
+            fileType={this.getFilePart("assets/door_closing.mp3", "type")}
+            name={this.getFilePart("assets/door_closing.mp3", "name")}
             soundSetup={this.soundSetup}
             sound={"assets/door_closing.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
@@ -91,7 +114,8 @@ playSound = (selectedSound) => {
            <Card
             id={34}
             key={3}
-            name={"door_slam"}
+            fileType={this.getFilePart("assets/door_slam.mp3", "type")}
+            name={this.getFilePart("assets/door_slam.mp3", "name")}
             soundSetup={this.soundSetup}
             sound={"assets/door_slam.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
@@ -99,15 +123,18 @@ playSound = (selectedSound) => {
            <Card
             id={45}
             key={4}
-            name={"dun_dun_dunnn"}
+            fileType={this.getFilePart("assets/Dramatic_chipmunk.wav", "type")}
+            name={this.getFilePart("assets/Dramatic_chipmunk.wav", "name")}
             soundSetup={this.soundSetup}
-            sound={"assets/dun_dun_dunnn.mp3"}
+            //wavs are much bigger, might not want them taking up all that space.
+            sound={"assets/Dramatic_chipmunk.wav"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
            <Card
             id={43}
             key={5}
-            name={"let_me_take_a_selfie"}
+            fileType={this.getFilePart("assets/let_me_take_a_selfie.mp3", "type")}
+            name={this.getFilePart("assets/let_me_take_a_selfie.mp3", "name")}
             soundSetup={this.soundSetup}
             sound={"assets/let_me_take_a_selfie.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
@@ -115,7 +142,8 @@ playSound = (selectedSound) => {
         <Card
             id={66}
             key={6}
-            name={"meeemes"}
+            fileType={this.getFilePart("assets/meeemes.mp3", "type")}
+            name={this.getFilePart("assets/meeemes.mp3", "name")}
             soundSetup={this.soundSetup}
             sound={"assets/meeemes.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
@@ -123,7 +151,8 @@ playSound = (selectedSound) => {
            <Card
             id={467}
             key={7}
-            name={"phone_beep"}
+            fileType={this.getFilePart("assets/phone_beep.mp3", "type")}
+            name={this.getFilePart("assets/phone_beep.mp3", "name")}
             soundSetup={this.soundSetup}
             sound={"assets/phone_beep.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
@@ -131,7 +160,8 @@ playSound = (selectedSound) => {
            <Card
             id={31}
             key={8}
-            name={"streets_of_fire"}
+            fileType={this.getFilePart("assets/streets_of_fire.mp3", "type")}
+            name={this.getFilePart("assets/streets_of_fire.mp3", "name")}
             soundSetup={this.soundSetup}
             sound={"assets/streets_of_fire.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
@@ -139,12 +169,13 @@ playSound = (selectedSound) => {
            <Card
             id={40}
             key={9}
-            name={"trouble_coldplay_intro"}
+            fileType={this.getFilePart("assets/trouble_coldplay_intro.mp3", "type")}
+            name={this.getFilePart("assets/trouble_coldplay_intro.mp3", "name")}
             soundSetup={this.soundSetup}
             sound={"assets/trouble_coldplay_intro.mp3"}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
-        
+        </Scroll>
       </Wrapper>
     );
   }

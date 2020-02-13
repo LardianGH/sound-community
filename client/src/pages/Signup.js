@@ -17,8 +17,7 @@ console.log("posted") //log them
 API.saveUser({ //call saveUser from ../utils/API
 userName, //insert the 3 data areas to saveUser
 password,
-email,
-file
+email
 })
 .then(res => {
   console.log(res.data)

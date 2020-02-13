@@ -4,13 +4,12 @@ import Error404 from "./pages/Error404";
 import Signup from "./pages/Signup";
 import Browse from "./pages/Browse"
 import Upload from "./pages/Upload"
-import S3 from "./pages/S3"
 function App() {
   return (
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={Upload} />
+          <Route exact path="/" component={Browse} />
         </Switch>
       </div>
     </Router>
