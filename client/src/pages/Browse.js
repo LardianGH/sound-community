@@ -3,6 +3,7 @@ import Card from "../components/Card";
 import Scroll from "../components/Scroll"
 import Wrapper from "../components/Wrapper";
 import Header from "../components/Header";
+import NavbarLink from "../components/NavbarLink";
 import {Howl, Howler} from 'howler';
 
 class Browse extends Component {
@@ -87,11 +88,16 @@ getFilePart = (filePath, part) => {
   }
 }
 
-  // Map over this.state.cards and render a cardCard component for each card object
+  // Map over this.state.cards and render a Card component for each card object
   render() {
     return (
       <Wrapper>
-        <Header>Welcome to my Soundboard!</Header>
+        <Header>
+          <NavbarLink text={"home"} link={"/Browse"}/>
+          <NavbarLink text={"download"} link={"/Download"}/>
+          <NavbarLink text={"upload"} link={"/Upload"}/>
+          <NavbarLink text={"sign up"} link={"/Signup"}/>
+        </Header>
         <Scroll>
           <Card
             id={42}

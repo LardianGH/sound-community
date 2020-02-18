@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
+import Header from "../components/Header";
+import NavbarLink from "../components/NavbarLink";
 import $ from 'jquery';
 
 class Home extends Component {
@@ -80,6 +82,12 @@ class Home extends Component {
 		console.log( this.state );
 		return(
 			<div className="container">
+				<Header>
+          <NavbarLink text={"home"} link={"/Browse"}/>
+          <NavbarLink text={"download"} link={"/Download"}/>
+          <NavbarLink text={"upload"} link={"/Upload"}/>
+          <NavbarLink text={"sign up"} link={"/Signup"}/>
+        </Header>
 				{/* For Alert box*/}
 				<div id="oc-alert-container"></div>
 				{/* Single File Upload*/}

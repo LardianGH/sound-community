@@ -3,6 +3,7 @@ var aws = require('aws-sdk');
 const multerS3 = require( 'multer-s3' );
 const multer = require('multer');
 const path = require( 'path' );
+
 require('dotenv').config(); // Configure dotenv to load in the .env file
 
 
@@ -12,7 +13,7 @@ const s3 = new aws.S3({
   Bucket: process.env.Bucket
 });  // Create a new instance of S3
 
-const profileImgUpload = multer({
+const FileUpload = multer({
 	storage: multerS3({
 		s3: s3,
 		bucket: process.env.Bucket,
@@ -64,7 +65,7 @@ createUser: function(req, res) {
 sign_s3: function(req, res) {
 console.log("Uploading file")
 
-profileImgUpload( req, res, ( error ) => {
+FileUpload( req, res, ( error ) => {
   console.log(res)
   console.log("After multer ------------------------------------")
   console.log(req)
@@ -93,6 +94,21 @@ profileImgUpload( req, res, ( error ) => {
   }
 });
   
+},
+//now what?
+download_s3: function(req, res) {
+console.log(req.body)
+console.log("req ran")
+s3.getObject(
+  { Bucket: "sound-community", Key: "Lardian.jpg" },
+  function(error, data) {
+    if (error != null ) {
+    console.log("failed: " + error);
+  } else {
+    console.log(data)
+    res.json(data)
+  }
 }
-
+)
+}
 };

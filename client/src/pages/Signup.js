@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import SignupForm from "../components/SignupForm";
+import Header from "../components/Header";
+import NavbarLink from "../components/NavbarLink";
 import API from "../utils/API";
 
 class Signup extends Component {
@@ -34,6 +36,12 @@ email
 render() {
   return (
     <div>
+      <Header>
+          <NavbarLink text={"home"} link={"/Browse"}/>
+          <NavbarLink text={"download"} link={"/Download"}/>
+          <NavbarLink text={"upload"} link={"/Upload"}/>
+          <NavbarLink text={"sign up"} link={"/Signup"}/>
+        </Header>
     {this.props.returnedName}
      <SignupForm
      handleSignupSubmit = {this.handleSignupSubmit}

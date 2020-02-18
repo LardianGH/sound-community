@@ -1,6 +1,6 @@
 
 # sound-community
-Warning: For others cloning this at it's current state, as this project is currently under-development, it is not going to be completely functional, stuff like the '/' route are set to whatever page I am currently working on, the page can be changed by switching the current component for another of the components imported to App.js
+Warning: For others cloning this at it's current state, as this project is currently under-development, it is not going to be completely functional. I have a very minimalist navbar setup for navigation during development. Most pages are not done and look very ugly and not fully functional, you have been warned.
 
 An online community-driven soundboard, constantly expanding it's catalog of sound effects uploaded by other users. For use in short movies, animations, or just for fun.
 
