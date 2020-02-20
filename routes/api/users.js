@@ -10,5 +10,8 @@ router.route("/signUp")
 
   router.route("/profile-img-upload")
 .post(userController.sign_s3)
-.get(userController.download_s3)
+
+router.route("/profile-img-download")
+.post(userController.download_s3)
+
   module.exports = router;

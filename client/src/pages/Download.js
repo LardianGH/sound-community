@@ -20,15 +20,15 @@ class Home extends Component {
           handleSubmit = event => { //whenever the form is submitted
             event.preventDefault()
             let currentComponent = this;
-            API.getfile('Lardian.jpg')
+            API.getfile(currentComponent.state.fileName)
             .then(res => {
               console.log(res)
-              let data = res.data.Body.data
-              let buff = new Buffer(data)
+              let source = res.data.Body.data
+              let type = res.data.ContentType
+              let buff = new Buffer(source)
               let base64 = buff.toString('base64')
-              console.log(base64)
               currentComponent.setState({
-                image: "data:image/jpeg;base64," + base64
+                image: "data:" + type + ";base64," + base64
               });
             })
             .catch(err => console.log(err));

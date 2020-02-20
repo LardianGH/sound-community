@@ -10,7 +10,7 @@ require('dotenv').config(); // Configure dotenv to load in the .env file
 const s3 = new aws.S3({
   accessKeyId: process.env.AWSAccessKeyId,
   secretAccessKey: process.env.AWSSecretKey,
-  Bucket: process.env.Bucket
+  region: process.env.Region,
 });  // Create a new instance of S3
 
 const FileUpload = multer({
@@ -54,7 +54,6 @@ module.exports = {
 createUser: function(req, res) {
   console.log("req.hey")
   console.log(req.body)
-    console.log(req.body.file)
 
     db.User
       .create(req.body)
@@ -95,12 +94,12 @@ FileUpload( req, res, ( error ) => {
 });
   
 },
-//now what?
-download_s3: function(req, res) {
-console.log(req.body)
+
+/*download_s3: function(req, res) {
+  console.log(req.body.filename)
 console.log("req ran")
 s3.getObject(
-  { Bucket: "sound-community", Key: "Lardian.jpg" },
+  { Bucket: "sound-community", key: req.body.filename },
   function(error, data) {
     if (error != null ) {
     console.log("failed: " + error);
@@ -110,5 +109,24 @@ s3.getObject(
   }
 }
 )
-}
+} */
+
+download_s3: async function(req, res) {
+console.log("start")
+    try {
+      aws.config.setPromisesDependency(),
+      aws.config.update({
+        accessKeyId: "AKIATZ6ZFXMESNZONGZ3",
+        secretAccessKey: "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",
+        region: "us-east-2",
+      });
+      const response = await s3.listObjectsV2({
+        Bucket: "sound-community"
+      }).promise();
+
+console.log(response);
+
+    } catch(error) {
+    console.log(error)
+    }}
 };

@@ -12,7 +12,7 @@ return axios.post("/api/users/profile-img-upload", file)
   },
 
   getfile: function(filename) {
-    //console.log(filename)
-    return axios.get("/api/users/profile-img-upload", filename)
+    console.log(filename)
+    return axios.post("/api/users/profile-img-download", {filename})
   }
 };
