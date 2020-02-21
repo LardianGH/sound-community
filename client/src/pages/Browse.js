@@ -19,6 +19,7 @@ class Browse extends Component {
   handleSubmit = ()=> { //whenever the form is submitted
      
     let currentComponent = this;
+    console.log(currentComponent.state.fileName)
     API.getfile(currentComponent.state.fileName)
     .then(res => {
       console.log(res)
@@ -42,9 +43,8 @@ class Browse extends Component {
     const { name, value } = event.target;
     this.setState({
       [name]: value
-    });
-    this.handleSubmit()
-  };
+    }, () => this.handleSubmit()
+    )};
 
   playSound = () => {
  
@@ -143,8 +143,8 @@ getFilePart = (filePath, part) => {
         <Scroll>
         {this.state.soundURLs.map(sounds => (
           <Card
-            id={477}
-            key={5}
+            //id={477}
+            //key={5}
             fileType={this.getFilePart(sounds.Key, "type")}
             name={this.getFilePart(sounds.Key, "name")}
             soundSetup={this.soundSetup}
