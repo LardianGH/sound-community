@@ -3,6 +3,7 @@ var aws = require('aws-sdk');
 const multerS3 = require( 'multer-s3' );
 const multer = require('multer');
 const path = require( 'path' );
+var stream = 
 
 require('dotenv').config(); // Configure dotenv to load in the .env file
 
@@ -112,19 +113,22 @@ s3.getObject(
 } */
 
 download_s3: async function(req, res) {
+  console.log(req.body.filename)
 console.log("start")
     try {
       aws.config.setPromisesDependency(),
       aws.config.update({
-        accessKeyId: "AKIATZ6ZFXMESNZONGZ3",
-        secretAccessKey: "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",
-        region: "us-east-2",
+        accessKeyId: process.env.accessKeyId,
+        secretAccessKey: process.env,
+        region: process.env.Region,
       });
       const response = await s3.listObjectsV2({
-        Bucket: "sound-community"
-      }).promise();
+        Bucket: process.env.Bucket,
+        Prefix: req.body.filename
+      }).promise()
 
-console.log(response);
+console.log(response); //the [0] is only for the first one.
+res.json(response);
 
     } catch(error) {
     console.log(error)

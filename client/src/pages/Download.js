@@ -15,20 +15,23 @@ class Home extends Component {
             this.setState({
               [name]: value
             });
+            this.handleSubmit()
           };
 
-          handleSubmit = event => { //whenever the form is submitted
-            event.preventDefault()
+          handleSubmit = ()=> { //whenever the form is submitted
+     
             let currentComponent = this;
             API.getfile(currentComponent.state.fileName)
             .then(res => {
               console.log(res)
-              let source = res.data.Body.data
-              let type = res.data.ContentType
-              let buff = new Buffer(source)
-              let base64 = buff.toString('base64')
+              console.log(res.data.Contents[0])
+              //let source = res.data.Body.data
+              //let type = res.data.ContentType
+              //let buff = new Buffer(source)
+              //let base64 = buff.toString('base64')
               currentComponent.setState({
-                image: "data:" + type + ";base64," + base64
+                //image: "data:" + type + ";base64," + base64
+                image: "https://sound-community.s3.us-east-2.amazonaws.com/" + res.data.Contents[0].Key
               });
             })
             .catch(err => console.log(err));
