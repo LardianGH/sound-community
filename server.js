@@ -20,7 +20,7 @@ app.use("/uploads", express.static("uploads"))
  }
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gridDB");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/soundCommunityDB");
 
 //express-session settings
 app.use(session({

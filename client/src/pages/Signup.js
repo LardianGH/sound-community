@@ -11,6 +11,22 @@ state = {
   returnedEmail: ""
 }
 
+checkForUser = () => {
+  console.log("checkForUser")
+  API.findCookie()
+.then(res => {
+  this.setState({
+    returnedName: res.data.userName,
+    returnedEmail: res.data.email
+  });
+})
+.catch(err => console.log(err));
+}
+
+componentDidMount(){
+  this.checkForUser()
+}
+
 handleSignupSubmit = (event, userName, password, email, file) => { //whenever the form is submitted
 
 //event.preventDefault()
@@ -42,7 +58,7 @@ render() {
           <NavbarLink text={"upload"} link={"/Upload"}/>
           <NavbarLink text={"sign up"} link={"/Signup"}/>
         </Header>
-    {this.props.returnedName}
+        {this.state.returnedName}
      <SignupForm
      handleSignupSubmit = {this.handleSignupSubmit}
      ></SignupForm>

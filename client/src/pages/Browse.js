@@ -112,8 +112,14 @@ getFilePart = (filePath, part) => {
     Development only, change to split on "-" (to get rid of the extra tag from s3)
     and return fileName[0] because it comes before the "-", this is only set up to deal with "Assets/{filename}"
     --- WARNING */
-    const fileName = splitFile[0].split("/")
-    return fileName[0]
+    const nameAndDate = splitFile[0].split("/")
+    const fileName = nameAndDate[0].split("-")
+    if (part === "name") {
+    const cleanedName = fileName[0].replace(/_/g," ")
+    return cleanedName;
+    } else {
+      return fileName[1];
+    }
     //ADDITION -- maybe get rid of the "_" unless it looks nice, but probably better if gone.
 
     //Individuals naming the files they upload is very important, block numbers, "-"s, and more than one ., "_" substitute spaces
@@ -141,12 +147,12 @@ getFilePart = (filePath, part) => {
       </form>
         </Header>
         <Scroll>
-        {this.state.soundURLs.map(sounds => (
+        {this.state.soundURLs.map((sounds, i) => (
           <Card
-            //id={477}
-            //key={5}
+            key={i}
             fileType={this.getFilePart(sounds.Key, "type")}
             name={this.getFilePart(sounds.Key, "name")}
+            uploadDate={this.getFilePart(sounds.Key, "date")}
             soundSetup={this.soundSetup}
             sound={"https://sound-community.s3.us-east-2.amazonaws.com/" + sounds.Key}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}

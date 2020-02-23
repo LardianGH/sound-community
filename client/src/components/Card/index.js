@@ -9,7 +9,8 @@ const Card = props => (
     </div>
     <div>
       <div className="content">
-         <div>{props.name}</div> 
+         <div>{props.name}</div>
+      <div>Uploaded {props.uploadDate}</div>
          <div> <a href={props.sound} download={props.name}>Download {props.fileType}</a> </div> 
       </div>
     </div>

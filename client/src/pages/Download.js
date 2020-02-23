@@ -25,12 +25,8 @@ class Home extends Component {
             .then(res => {
               console.log(res)
               console.log(res.data.Contents[0])
-              //let source = res.data.Body.data
-              //let type = res.data.ContentType
-              //let buff = new Buffer(source)
-              //let base64 = buff.toString('base64')
+
               currentComponent.setState({
-                //image: "data:" + type + ";base64," + base64
                 image: "https://sound-community.s3.us-east-2.amazonaws.com/" + res.data.Contents[0].Key
               });
             })

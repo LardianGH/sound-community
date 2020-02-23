@@ -6,17 +6,6 @@ import $ from 'jquery';
 
 class Home extends Component {
 
-		state = {
-			selectedFile: null
-		}
-
-	singleFileChangedHandler = ( event ) => {
-		this.setState({
-			selectedFile: event.target.files[0]
-		});
-	};
-
-
 	singleFileUploadHandler = ( event ) => {
 		const data = new FormData();
 // If file selected

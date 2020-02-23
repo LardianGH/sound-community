@@ -38,7 +38,7 @@ const FileUpload = multer({
  */
 function checkFileType( file, cb ){
 	// Allowed ext
-	const filetypes = /.mp3|png|gif/;
+	const filetypes = /mp3|wav|m4a/;
 	// Check ext
 	const extname = filetypes.test( path.extname( file.originalname ).toLowerCase());
 	// Check mime
@@ -52,6 +52,15 @@ function checkFileType( file, cb ){
 
 module.exports = {
 
+  findCookie: function(req, res) {
+    if(req.session.userName) {
+        res.json(req.session)
+    }
+    else {
+      console.log("no username saved")
+    }
+      },
+
 createUser: function(req, res) {
   console.log("req.hey")
   console.log(req.body)
@@ -60,6 +69,24 @@ createUser: function(req, res) {
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+},
+
+findUser: function(req, res) {
+  console.log("Session: ___l")
+  const response = {session: req.session}
+  console.log(req.body)
+  console.log(req.body.userName)
+  console.log(req.body.password)
+  console.log(req.session)
+  db.User
+    .find({userName: req.body.userName, password: req.body.password})
+    .sort({ date: -1 })
+    .then(dbModel => {
+    response.dbModel = dbModel,
+    req.session.userName = response.dbModel[0].userName,
+    req.session.email = response.dbModel[0].email,
+    res.json(response);
+  }).catch(err => res.status(422).json(err));
 },
 
 sign_s3: function(req, res) {
