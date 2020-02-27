@@ -7,18 +7,9 @@ router.route("/signUp")
 
   // Matches with "/api/users/login"
 router.route("/login")
-.post(userController.findUser)
- 
- // router.route("/fileupload")
-  //.post(userController.sign_s3)
+  .post(userController.findUser)
 
-  router.route("/cookie")
+router.route("/cookie")
   .get(userController.findCookie)
-
-  router.route("/profile-img-upload")
-.post(userController.sign_s3)
-
-router.route("/profile-img-download")
-.post(userController.download_s3)
 
   module.exports = router;

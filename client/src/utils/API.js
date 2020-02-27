@@ -18,12 +18,12 @@ export default {
 
   fileupload: function(file) {
   console.log(file)
-    return axios.post("/api/users/profile-img-upload", file)
+    return axios.post("/api/files/profile-img-upload", file)
   },
 
   getfile: function(filename) {
     console.log(filename)
-    return axios.post("/api/users/profile-img-download", {filename})
+    return axios.post("/api/files/profile-img-download", {filename})
   }
 
 

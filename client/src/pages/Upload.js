@@ -1,10 +1,40 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
-import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 import NavbarLink from "../components/NavbarLink";
 import $ from 'jquery';
 
 class Home extends Component {
+
+	state = {
+		selectedFile: null,
+		returnedName: "",
+		returnedEmail: "",
+		returnedID: ""
+	}
+
+singleFileChangedHandler = ( event ) => {
+	this.setState({
+		selectedFile: event.target.files[0]
+	});
+};
+
+	checkForUser = () => {
+		console.log("checkForUser")
+		API.findCookie()
+	  .then(res => {
+		this.setState({
+		  returnedName: res.data.userName,
+		  returnedEmail: res.data.email,
+		  returnedID: res.data._id
+		});
+	  })
+	  .catch(err => console.log(err));
+	  }
+
+	  componentDidMount(){
+		this.checkForUser()
+	  }
 
 	singleFileUploadHandler = ( event ) => {
 		const data = new FormData();
@@ -14,7 +44,7 @@ class Home extends Component {
 			console.log("data")
 			console.log(data)
 			API.fileupload( data, {
-				headers: {
+				Navbars: {
 					'accept': 'application/json',
 					'Accept-Language': 'en-US,en;q=0.8',
 					'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
@@ -71,17 +101,20 @@ class Home extends Component {
 		console.log( this.state );
 		return(
 			<div className="container">
-				<Header>
+				<Navbar>
           <NavbarLink text={"home"} link={"/Browse"}/>
           <NavbarLink text={"download"} link={"/Download"}/>
           <NavbarLink text={"upload"} link={"/Upload"}/>
           <NavbarLink text={"sign up"} link={"/Signup"}/>
-        </Header>
+		  <NavbarLink text={"login"} link={"/Login"}/>
+        </Navbar>
+		{this.state.returnedName}
+		{this.state.returnedID}
 				{/* For Alert box*/}
 				<div id="oc-alert-container"></div>
 				{/* Single File Upload*/}
 				<div>
-					<div className="card-header">
+					<div className="card-Header">
 						<h3 style={{ color: '#fff', marginLeft: '12px' }}>Single Image Upload</h3>
 						<p className="text-muted" style={{ marginLeft: '12px' }}>Upload Size: 250px x 250px ( Max 2MB )</p>
 					</div>

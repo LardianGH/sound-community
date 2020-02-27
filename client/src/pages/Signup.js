@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SignupForm from "../components/SignupForm";
-import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 import NavbarLink from "../components/NavbarLink";
 import API from "../utils/API";
 
@@ -43,7 +43,7 @@ email
     returnedName: res.data.dbModel[0].userName,
     returnedEmail: res.data.dbModel[0].email
   });
-  this.props.history.push("/")
+  this.props.history.push("/login")
 })
 .catch(err => console.log(err));
 }
@@ -52,12 +52,13 @@ email
 render() {
   return (
     <div>
-      <Header>
+      <Navbar>
           <NavbarLink text={"home"} link={"/Browse"}/>
           <NavbarLink text={"download"} link={"/Download"}/>
           <NavbarLink text={"upload"} link={"/Upload"}/>
           <NavbarLink text={"sign up"} link={"/Signup"}/>
-        </Header>
+          <NavbarLink text={"Login"} link={"/Login"}/>
+        </Navbar>
         {this.state.returnedName}
      <SignupForm
      handleSignupSubmit = {this.handleSignupSubmit}

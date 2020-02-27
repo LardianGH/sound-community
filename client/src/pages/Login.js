@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 import NavbarLink from "../components/NavbarLink";
 import LoginForm from "../components/LoginForm"
 import API from "../utils/API";
@@ -26,7 +26,7 @@ if (userName && password) { //if all 2 areas are filled out, run this
           returnedName: res.data.dbModel[0].userName,
           returnedEmail: res.data.dbModel[0].email
         });
-        this.props.history.push("/")
+        this.props.history.push("/browse")
       })
       .catch(err => console.log(err));
     }
@@ -44,6 +44,10 @@ checkForUser = () => {
 .catch(err => console.log(err));
 }
 
+componentDidMount(){
+  this.checkForUser()
+}
+
 
 //something is wrong
 render() {
@@ -51,12 +55,13 @@ render() {
 return (
 
 <div>
-      <Header>
+      <Navbar>
           <NavbarLink text={"home"} link={"/Browse"}/>
           <NavbarLink text={"download"} link={"/Download"}/>
           <NavbarLink text={"upload"} link={"/Upload"}/>
           <NavbarLink text={"sign up"} link={"/Signup"}/>
-        </Header>
+          <NavbarLink text={"Login"} link={"/Login"}/>
+        </Navbar>
         {this.state.returnedName}
 
         <LoginForm

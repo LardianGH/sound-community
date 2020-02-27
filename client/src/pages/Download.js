@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
-import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 import NavbarLink from "../components/NavbarLink";
 
 class Home extends Component {
@@ -37,12 +37,12 @@ class Home extends Component {
 	render() {
 		return(
 			<div className="container">
-        <Header>
+        <Navbar>
           <NavbarLink text={"home"} link={"/Browse"}/>
           <NavbarLink text={"download"} link={"/Download"}/>
           <NavbarLink text={"upload"} link={"/Upload"}/>
           <NavbarLink text={"sign up"} link={"/Signup"}/>
-        </Header>
+        </Navbar>
 				<img src={this.state.image} alt={this.state.image}></img>
                     <form>
                     <input

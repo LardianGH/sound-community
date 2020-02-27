@@ -54,14 +54,6 @@ render() {
                         onChange={this.handleInputChange}
                         />
                         </div>
-                        <div className="fieldWrapper">
-                        <input className="field"
-                        name="image"
-                        type="file"
-                        value={this.state.image}
-                        onChange={this.handleFileUpload}
-                        />
-                        </div>
                     <button 
                     type="submit"
                     onClick={e => this.props.handleSignupSubmit(e, this.state.userName, this.state.password, this.state.email, this.state.selectedFile)} //when this button is clicked, it submits the form

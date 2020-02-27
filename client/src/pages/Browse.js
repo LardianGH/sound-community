@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Card from "../components/Card";
 import Scroll from "../components/Scroll"
 import Wrapper from "../components/Wrapper";
-import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 import NavbarLink from "../components/NavbarLink";
 import {Howl, Howler} from 'howler';
 import API from "../utils/API";
@@ -12,6 +12,8 @@ class Browse extends Component {
   state = {
     sound: null,
     lastSound: null,
+    bucketRegion: "",
+    bucketName: "",
     soundName: "",
     soundURLs: []
   };
@@ -29,7 +31,9 @@ class Browse extends Component {
       });
       for (let i=0; i < res.data.Contents.length; i++) {
         currentComponent.setState({
-          soundURLs: currentComponent.state.soundURLs.concat(res.data.Contents[i])
+          soundURLs: currentComponent.state.soundURLs.concat(res.data.Contents[i]),
+          bucketName: res.data.Name,
+          bucketRegion: res.data.Region
         });
         console.log(currentComponent.state.soundURLs)
       }
@@ -131,7 +135,7 @@ getFilePart = (filePath, part) => {
   render() {
     return (
       <Wrapper>
-        <Header>
+        <Navbar>
           <NavbarLink text={"home"} link={"/Browse"}/>
           <NavbarLink text={"download"} link={"/Download"}/>
           <NavbarLink text={"upload"} link={"/Upload"}/>
@@ -145,7 +149,7 @@ getFilePart = (filePath, part) => {
         placeholder="Search"
         />
       </form>
-        </Header>
+        </Navbar>
         <Scroll>
         {this.state.soundURLs.map((sounds, i) => (
           <Card
@@ -154,7 +158,7 @@ getFilePart = (filePath, part) => {
             name={this.getFilePart(sounds.Key, "name")}
             uploadDate={this.getFilePart(sounds.Key, "date")}
             soundSetup={this.soundSetup}
-            sound={"https://sound-community.s3.us-east-2.amazonaws.com/" + sounds.Key}
+            sound={"https://" + this.state.bucketName + ".s3." + this.state.bucketRegion + ".amazonaws.com/" + sounds.Key}
             image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
           />
         ))}
