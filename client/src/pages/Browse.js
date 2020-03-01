@@ -5,6 +5,7 @@ import Wrapper from "../components/Wrapper";
 import Navbar from "../components/Navbar";
 import NavbarLink from "../components/NavbarLink";
 import {Howl, Howler} from 'howler';
+import moment from 'moment';
 import API from "../utils/API";
 
 class Browse extends Component {
@@ -15,8 +16,23 @@ class Browse extends Component {
     bucketRegion: "",
     bucketName: "",
     soundName: "",
-    soundURLs: []
+    soundURLs: [],
+    fileName: "",
+    returnedName: "",
+    returnedEmail: ""
   };
+
+  checkForUser = () => {
+    //console.log("checkForUser")
+    API.findCookie()
+  .then(res => {
+    this.setState({
+      returnedName: res.data.userName,
+      returnedEmail: res.data.email
+    });
+  })
+  .catch(err => console.log(err));
+  }
 
   handleSubmit = ()=> { //whenever the form is submitted
      
@@ -39,8 +55,12 @@ class Browse extends Component {
       }
       
     })
-    .catch(err => console.log(err));
-        
+    .catch(err => console.log(err));   
+    }
+
+    componentWillMount(){
+      this.checkForUser()
+      this.handleSubmit()
     }
 
   handleInputChange = event => { //Allows the textboxes to be used.
@@ -107,7 +127,7 @@ playSound = (selectedSound) => {
 }
 */
 
-getFilePart = (filePath, part) => {
+getFilePart = (filePath, part) => { //runs 3 times, can I reduce? ---TODO
   //console.log("Getting file" + part)
   const splitFile = filePath.split(".")
   if (part === "type") return splitFile[1]
@@ -122,7 +142,9 @@ getFilePart = (filePath, part) => {
     const cleanedName = fileName[0].replace(/_/g," ")
     return cleanedName;
     } else {
-      return fileName[1];
+      const fileDate = parseInt(fileName[1])
+      const formatDate = moment(fileDate).format('MMMM Do YYYY, h:mm:ss a');
+      return formatDate
     }
     //ADDITION -- maybe get rid of the "_" unless it looks nice, but probably better if gone.
 

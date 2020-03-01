@@ -37,6 +37,7 @@ singleFileChangedHandler = ( event ) => {
 	  }
 
 	singleFileUploadHandler = ( event ) => {
+
 		const data = new FormData();
 // If file selected
 		if ( this.state.selectedFile ) {

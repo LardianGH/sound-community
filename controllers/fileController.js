@@ -1,3 +1,4 @@
+const db = require("../models");
 const aws = require('aws-sdk'); 
 const multerS3 = require( 'multer-s3' );
 const multer = require('multer');
@@ -51,11 +52,8 @@ const s3 = new aws.S3({
 
     sign_s3: function(req, res) {
         console.log("Uploading file")
-        
         FileUpload( req, res, ( error ) => {
-          console.log(res)
           console.log("After multer ------------------------------------")
-          console.log(req)
         
           console.log( 'requestOkokok', req.file);
           console.log( 'error', error );
@@ -70,13 +68,33 @@ const s3 = new aws.S3({
               res.json( 'Error: No File Selected' );
             } else {
               // If Success
-              const imageName = req.file.key;
-              const imageLocation = req.file.location;
-        // Save the file name into database into profile model
-              res.json( {
-                image: imageName,
-                location: imageLocation
-              } );
+              const fileKey = req.file.key;
+              const url = req.file.location;
+              const user = req.session
+              const soundInfo = {
+                fileKey,
+                userID: user._id
+              }
+              if(req.session.userName) {
+                // Save the file name into database into sound model
+                db.Sound
+                .create({
+                  fileKey,
+                  userID: user._id
+                })
+                .then(dbModel => res.json(
+                  {
+                  dbModel,
+                  fileName,
+                  url,
+                  user
+                } ))
+                .catch(err => res.status(422).json(err));
+             
+            }
+            else {
+              console.log("no username saved")
+            }
             }
           }
         });
