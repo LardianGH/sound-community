@@ -51,6 +51,8 @@ const s3 = new aws.S3({
   module.exports = {
 
     sign_s3: function(req, res) {
+
+      if(req.session.userName) {
         console.log("Uploading file")
         FileUpload( req, res, ( error ) => {
           console.log("After multer ------------------------------------")
@@ -75,7 +77,7 @@ const s3 = new aws.S3({
                 fileKey,
                 userID: user._id
               }
-              if(req.session.userName) {
+              
                 // Save the file name into database into sound model
                 db.Sound
                 .create({
@@ -84,20 +86,20 @@ const s3 = new aws.S3({
                 })
                 .then(dbModel => res.json(
                   {
-                  dbModel,
-                  fileName,
-                  url,
-                  user
+                  dbModel
                 } ))
                 .catch(err => res.status(422).json(err));
              
-            }
-            else {
-              console.log("no username saved")
-            }
+            
             }
           }
         });
+
+      }
+      else {
+        res.status(422).json("no username saved")
+        console.log("no username saved")
+      }
           
         },
         
@@ -140,5 +142,7 @@ const s3 = new aws.S3({
             } catch(error) {
             console.log(error)
             }}
+
+            
 
   }
