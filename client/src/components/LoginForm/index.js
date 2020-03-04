@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./style.css"
 class LoginForm extends Component { //main is a test page to test user creation (Working)
 
     state = { //All the variables that will change
@@ -19,23 +20,26 @@ handleInputChange = event => { //Allows the textboxes to be used.
 
 render() {
     return(
-        <form className="new">
-                <div className="fields">
-                    <div className="field">
-                        <input 
+        <form className="Login">
+                    <div className="fieldWrapper">
+                      Username
+                      <div></div>
+                        <input className="field"
                         name="userName"
                         type="text" 
-                        placeholder="Username"
+                        placeholder="EX: Kylester3422"
                         value={this.state.name}
                         onChange={this.handleInputChange}
                         />
                         <i className="user icon"></i>
                     </div>
-                    <div className="field">
-                        <input 
+                    <div className="fieldWrapper">
+                      Password
+                      <div></div>
+                        <input className="field"
                         name="password"
                         type="password"
-                        placeholder="Password"
+                        placeholder="EX: !LOv3CakE"
                         value={this.state.password}
                         onChange={this.handleInputChange}
                         />
@@ -46,9 +50,12 @@ render() {
                     onClick={e => this.props.handleSubmit(e, this.state.userName, this.state.password)} //when this button is clicked, it submits the form
                     className="ui big button">
                         <i className="signup icon"></i>
-                        Sign Up
+                        Log in
                     </button>
-                </div>
+
+                      <div className="changeForm">
+                    <a href="/Signup">or Sign Up here</a>
+                    </div>
         </form>
     );
 };

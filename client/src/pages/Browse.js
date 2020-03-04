@@ -158,10 +158,6 @@ getFilePart = (filePath, part) => { //runs 3 times, can I reduce? ---TODO
     return (
       <Wrapper>
         <Navbar>
-          <NavbarLink text={"home"} link={"/Browse"}/>
-          <NavbarLink text={"download"} link={"/Download"}/>
-          <NavbarLink text={"upload"} link={"/Upload"}/>
-          <NavbarLink text={"sign up"} link={"/Signup"}/>
           <form>
                     <input
         className="fileName"

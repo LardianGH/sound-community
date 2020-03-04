@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
 import Navbar from "../components/Navbar";
-import NavbarLink from "../components/NavbarLink";
 import $ from 'jquery';
 
 class Home extends Component {
@@ -103,12 +102,7 @@ singleFileChangedHandler = ( event ) => {
 		return(
 			<div className="container">
 				<Navbar>
-          <NavbarLink text={"home"} link={"/Browse"}/>
-          <NavbarLink text={"download"} link={"/Download"}/>
-          <NavbarLink text={"upload"} link={"/Upload"}/>
-          <NavbarLink text={"sign up"} link={"/Signup"}/>
-		  <NavbarLink text={"login"} link={"/Login"}/>
-        </Navbar>
+        	</Navbar>
 		{this.state.returnedName}
 		{this.state.returnedID}
 				{/* For Alert box*/}

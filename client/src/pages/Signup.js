@@ -53,11 +53,6 @@ render() {
   return (
     <div>
       <Navbar>
-          <NavbarLink text={"home"} link={"/Browse"}/>
-          <NavbarLink text={"download"} link={"/Download"}/>
-          <NavbarLink text={"upload"} link={"/Upload"}/>
-          <NavbarLink text={"sign up"} link={"/Signup"}/>
-          <NavbarLink text={"Login"} link={"/Login"}/>
         </Navbar>
         {this.state.returnedName}
      <SignupForm

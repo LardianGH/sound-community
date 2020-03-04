@@ -6,10 +6,6 @@ function Error404() {
   return (
       <div>
         <Navbar>
-          <NavbarLink text={"home"} link={"/Browse"}/>
-          <NavbarLink text={"download"} link={"/Download"}/>
-          <NavbarLink text={"upload"} link={"/Upload"}/>
-          <NavbarLink text={"sign up"} link={"/Signup"}/>
         </Navbar>
             <h1>404 Page Not Found</h1>
             <h1>

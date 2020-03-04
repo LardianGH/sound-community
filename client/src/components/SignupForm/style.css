@@ -6,12 +6,19 @@ border-style: outset;
 border-width: 2px;
 width: fit-content;
 text-align: center;
+background-color: greenyellow;
+    height: auto;
 }
 
 .fieldWrapper {
-
+    padding: 40px;
 }
 
 .field {
     width: 200px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-style: solid;
+    border-radius: 10px;
+    text-align: center;
 }

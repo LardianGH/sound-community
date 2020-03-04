@@ -38,10 +38,6 @@ class Home extends Component {
 		return(
 			<div className="container">
         <Navbar>
-          <NavbarLink text={"home"} link={"/Browse"}/>
-          <NavbarLink text={"download"} link={"/Download"}/>
-          <NavbarLink text={"upload"} link={"/Upload"}/>
-          <NavbarLink text={"sign up"} link={"/Signup"}/>
         </Navbar>
 				<img src={this.state.image} alt={this.state.image}></img>
                     <form>
