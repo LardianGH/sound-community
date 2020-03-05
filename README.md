@@ -5,7 +5,7 @@
 An online community-driven soundboard, constantly expanding it's catalog of sound effects uploaded by other users. For use in short movies, animations, or just for fun.
 
 ## Deployed version
-Not deployed yet
+deploying soon
 
 ## Installing and running locally
 Clone the repo using HTTPS:
