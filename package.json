@@ -4,7 +4,7 @@
   "description": "An online community-driven soundboard, constantly expanding it's catalog of sound effects uploaded by other users. For use in short movies, animations, or just for fun.",
   "main": "index.js",
   "scripts": {
-    "start": "per-env NODE_ENV=production && yarn start:prod || yarn start:dev",
+    "start": "node server.js",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon server.js\" \"yarn client\"",
     "client": "cd client && yarn start"
