@@ -13,11 +13,15 @@ const NODE_ENV = "development"
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-//app.use("/uploads", express.static("uploads"))
+app.use("/uploads", express.static("uploads"))
 // Serve up static assets (usually on heroku)
  if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
  }
+
+ app.get('*', (request, response) => {
+  response.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/soundCommunityDB");
