@@ -11,9 +11,8 @@ function App() {
     <Router>
       <div>
         <Switch>
-        <Route exact path="/" component={Download} />
+        <Route exact path="/" component={Login} />
         <Route exact path="/Browse" component={Browse} />
-        <Route exact path="/Download" component={Download} />
         <Route exact path="/Upload" component={Upload} />
         <Route exact path="/Signup" component={Signup} />
         <Route exact path="/Login" component={Login} />

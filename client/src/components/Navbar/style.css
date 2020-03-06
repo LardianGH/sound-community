@@ -2,6 +2,13 @@
   width: 100%;
   font-size: 2rem;
   background-color: #2A77AE;
+  text-align: center;
+  padding: 5px;
+}
+
+.NavbarLink {
+  display: inline;
+  margin: 20px;
 }
 
 .title {

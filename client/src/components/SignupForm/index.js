@@ -28,28 +28,31 @@ render() {
     return(
         <form className="Signup">
                         <div className="fieldWrapper">
+                        Username
                         <input className="field"
                         name="userName"
                         type="text" 
-                        placeholder="Username"
+                        placeholder="EX: Kylester3422"
                         value={this.state.name}
                         onChange={this.handleInputChange}
                         />
                         </div>
                         <div className="fieldWrapper">
+                            Email
                         <input className="field"
                         name="email"
                         type="text"
-                        placeholder="Email"
+                        placeholder="KyleLovesCake@gmail.com"
                         value={this.state.email}
                         onChange={this.handleInputChange}
                         />
                         </div>
                         <div className="fieldWrapper">
+                            Password
                         <input className="field"
                         name="password"
                         type="password"
-                        placeholder="Password"
+                        placeholder="EX: !LOv3CakE"
                         value={this.state.password}
                         onChange={this.handleInputChange}
                         />
@@ -61,6 +64,10 @@ render() {
                         <i className="signup icon"></i>
                         Sign Up
                     </button>
+                    
+                    <div className="changeForm">
+                    <a href="/Login">or Log in here</a>
+                    </div>
         </form>
     );
 };

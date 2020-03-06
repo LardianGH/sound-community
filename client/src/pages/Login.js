@@ -40,8 +40,8 @@ checkForUser = () => {
     returnedName: res.data.userName,
     returnedEmail: res.data.email
   });
-  if (res.data.userName) 
-{this.props.history.push("/browse")}
+ // if (res.data.userName) 
+//{this.props.history.push("/browse")}
 })
 .catch(err => console.log(err));
 }
@@ -57,6 +57,8 @@ render() {
 return (
 
 <div>
+<Navbar>
+  </Navbar>
         {this.state.returnedName}
 
         <LoginForm
