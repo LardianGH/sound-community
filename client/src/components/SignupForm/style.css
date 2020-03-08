@@ -1,13 +1,19 @@
+p, a{
+    color: white;
+}
+
 .Signup {
-margin: 20px;
-margin-left: auto;
-margin-right: auto;
-border-style: outset;
-border-width: 2px;
-width: fit-content;
-text-align: center;
-background-color: greenyellow;
-    height: auto;
+    margin: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: outset;
+    border-width: 5px;
+    border-color: slategrey;
+    width: fit-content;
+    text-align: center;
+    background-color: greenyellow;
+    background-image: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pf-chim-036.jpg?w=800&dpr=1&fit=default&crop=default&auto=format&fm=pjpg&q=75&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=d6568c05cc9cea4ae46605f588832e35);
+        height: auto;
 }
 
 .fieldWrapper {
@@ -21,4 +27,16 @@ background-color: greenyellow;
     border-style: solid;
     border-radius: 10px;
     text-align: center;
+}
+
+.signupButton {
+    width: 200px;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: rgb(66, 143, 190);
+    border-style: none;
+}
+
+.signupButton:hover {
+    background-color: rgb(42, 93, 124);
 }

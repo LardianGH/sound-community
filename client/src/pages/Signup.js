@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SignupForm from "../components/SignupForm";
 import Navbar from "../components/Navbar";
 import NavbarLink from "../components/NavbarLink";
+import Wrapper from "../components/Wrapper";
 import API from "../utils/API";
 
 class Signup extends Component {
@@ -51,14 +52,14 @@ email
 
 render() {
   return (
-    <div>
+    <Wrapper>
       <Navbar>
         </Navbar>
         {this.state.returnedName}
      <SignupForm
      handleSignupSubmit = {this.handleSignupSubmit}
      ></SignupForm>
-     </div>
+    </Wrapper>
   );
 }
 }

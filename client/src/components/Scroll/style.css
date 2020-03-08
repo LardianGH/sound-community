@@ -1,7 +1,7 @@
 .scroll {
   background-color: brown;
   background-size: cover;
-  height: 539px;
+  height: 90%;
   display: flex;
   flex-flow: row wrap;
   padding: 0px;
@@ -13,7 +13,7 @@
 @media only screen and (max-width: 500px){ /* adds mobile responsivity */
  
 .scroll {
-height: 506px;
+height: 83%;
 }
    
   }

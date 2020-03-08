@@ -11,12 +11,14 @@ const Navbar = props => (
         <NavbarLink text={"upload"} link={"/Upload"}/>
     </div>
     <div className="NavbarLink">
-        <NavbarLink text={"sign up"} link={"/Signup"}/>
+        <NavbarLink text={"signup"} link={"/Signup"}/>
     </div>
     <div className="NavbarLink">
           <NavbarLink text={"login"} link={"/Login"}/>
     </div>
+    <div className="NavbarExtra">
     {props.children}
+    </div>
   </div>
 );
 

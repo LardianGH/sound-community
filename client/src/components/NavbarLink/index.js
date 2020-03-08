@@ -1,9 +1,9 @@
 import React from "react";
-//import "./style.css";
+import "./style.css";
 
 const NavbarLink = props => (
   <div className="NavbarLink">
-    <a href={props.link}>{props.text}</a>
+    <a href={props.link} className="Link">{props.text}</a>
   </div>
 );
 

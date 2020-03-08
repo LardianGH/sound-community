@@ -22,7 +22,7 @@ render() {
     return(
         <form className="Login">
                     <div className="fieldWrapper">
-                      Username
+                    <p>Username</p>
                       <div></div>
                         <input className="field"
                         name="userName"
@@ -34,7 +34,7 @@ render() {
                         <i className="user icon"></i>
                     </div>
                     <div className="fieldWrapper">
-                      Password
+                    <p>Password</p>
                       <div></div>
                         <input className="field"
                         name="password"

@@ -3,15 +3,22 @@
   font-size: 2rem;
   background-color: #2A77AE;
   text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
   padding: 5px;
 }
 
 .NavbarLink {
   display: inline;
-  margin: 20px;
+  margin: 5px;
 }
 
 .title {
   text-align: center;
   color: #00b392
+}
+
+.NavbarExtra {
+  width: 100%
 }

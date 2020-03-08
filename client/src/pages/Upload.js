@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
 import Navbar from "../components/Navbar";
+import Wrapper from "../components/Wrapper";
 import $ from 'jquery';
 
 class Home extends Component {
@@ -100,7 +101,8 @@ singleFileChangedHandler = ( event ) => {
 	render() {
 		console.log( this.state );
 		return(
-			<div className="container">
+			<Wrapper>
+			
 				<Navbar>
         	</Navbar>
 		{this.state.returnedName}
@@ -121,7 +123,7 @@ singleFileChangedHandler = ( event ) => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</Wrapper>
 		);
 	}
 }

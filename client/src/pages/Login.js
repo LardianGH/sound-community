@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navbar from "../components/Navbar";
 import NavbarLink from "../components/NavbarLink";
 import LoginForm from "../components/LoginForm"
+import Wrapper from "../components/Wrapper";
 import API from "../utils/API";
 
 class Login extends Component { //main is a test page to test user creation (Working)
@@ -56,17 +57,15 @@ render() {
   
 return (
 
-<div>
+<Wrapper>
 <Navbar>
   </Navbar>
         {this.state.returnedName}
-
         <LoginForm
     handleSubmit={this.handleSubmit}
     >
     </LoginForm>
-
-</div>
+</Wrapper>
 
 )
 }

@@ -26,9 +26,11 @@ handleInputChange = event => { //Allows the textboxes to be used.
 
 render() {
     return(
-        <form className="Signup">
+        <form           className="Signup">
+            <input type="hidden" value="something"/>
                         <div className="fieldWrapper">
-                        Username
+                        <p>Username</p>
+                        <div></div>
                         <input className="field"
                         name="userName"
                         type="text" 
@@ -38,7 +40,8 @@ render() {
                         />
                         </div>
                         <div className="fieldWrapper">
-                            Email
+                            <p>Email</p>
+                            <div></div>
                         <input className="field"
                         name="email"
                         type="text"
@@ -48,7 +51,8 @@ render() {
                         />
                         </div>
                         <div className="fieldWrapper">
-                            Password
+                        <p>Password</p>
+                            <div></div>
                         <input className="field"
                         name="password"
                         type="password"
@@ -60,13 +64,13 @@ render() {
                     <button 
                     type="submit"
                     onClick={e => this.props.handleSignupSubmit(e, this.state.userName, this.state.password, this.state.email, this.state.selectedFile)} //when this button is clicked, it submits the form
-                    className="ui big button">
+                    className="signupButton">
                         <i className="signup icon"></i>
-                        Sign Up
+                        <p>Sign Up</p>
                     </button>
                     
                     <div className="changeForm">
-                    <a href="/Login">or Log in here</a>
+                    <a href="/Login">Already have an account?</a>
                     </div>
         </form>
     );
