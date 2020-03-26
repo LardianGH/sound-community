@@ -16,6 +16,10 @@ export default {
     return axios.post("/api/users/login", userData);
   },
 
+  getUploaderByID: function(soundInfo) {
+    return axios.post("/api/files/getFileUploader2", soundInfo);
+  },
+
   fileupload: function(file) {
   console.log(file)
     return axios.post("/api/files/profile-img-upload", file)
@@ -24,6 +28,11 @@ export default {
   getfile: function(filename) {
     console.log(filename)
     return axios.post("/api/files/profile-img-download", {filename})
+  },
+
+  getFileUploader: function(filename) {
+    console.log(filename)
+    return axios.post("/api/files/getFileUploader", {filename})
   }
 
 

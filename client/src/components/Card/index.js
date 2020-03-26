@@ -11,6 +11,7 @@ const Card = props => (
       <div className="content">
          <div>{props.name}</div>
       <div>Uploaded: {props.uploadDate}</div>
+      <div>Uploaded by: {props.user}</div>
          <div> <a href={props.sound} download={props.name}>Download {props.fileType}</a> </div> 
       </div>
     </div>

@@ -84,10 +84,7 @@ const s3 = new aws.S3({
                   fileKey,
                   userID: user._id
                 })
-                .then(dbModel => res.json(
-                  {
-                  dbModel
-                } ))
+                .then(dbModel => res.json(dbModel))
                 .catch(err => res.status(422).json(err));
              
             
@@ -120,8 +117,8 @@ const s3 = new aws.S3({
         } */
         
         download_s3: async function(req, res) {
-          console.log(req.body.filename)
-        console.log("start")
+        //  console.log(req.body.filename)
+       // console.log("start")
             try {
               aws.config.setPromisesDependency(),
               aws.config.update({
@@ -136,12 +133,28 @@ const s3 = new aws.S3({
         
         response.Region = process.env.Region
         
-        console.log(response); //the [0] is only for the first one.
+        //console.log(response); //the [0] is only for the first one.
         res.json(response);
         
             } catch(error) {
             console.log(error)
-            }}
+            }},
+
+            getFileUploader: function(req, res) {
+             // console.log(req.body.filename)
+              db.Sound
+              .findOne({fileKey: req.body.filename})
+              .then(dbModel => res.json(dbModel))
+              .catch(err => res.status(422).json(err));
+            },
+
+            getFileUploader2: function(req, res) {
+              console.log(req.body.data)
+               db.User
+               .findOne({_id: req.body.data.userID})
+               .then(dbModel => res.json(dbModel))
+               .catch(err => res.status(422).json(err));
+             }
 
             
 

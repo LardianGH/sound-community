@@ -8,5 +8,11 @@ router.route("/profile-img-upload")
 router.route("/profile-img-download")
 .post(fileController.download_s3)
 
+router.route("/getFileUploader")
+.post(fileController.getFileUploader)
+
+router.route("/getFileUploader2")
+  .post(fileController.getFileUploader2)
+
 
 module.exports = router;

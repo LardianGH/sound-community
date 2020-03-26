@@ -52,6 +52,7 @@ class Browse extends Component {
           bucketRegion: res.data.Region
         });
         console.log(currentComponent.state.soundURLs)
+
       }
       
     })
@@ -98,7 +99,6 @@ class Browse extends Component {
   
 
   soundSetup = (selectedSound) => {
-    console.log(selectedSound)
     /* If a new sound is clicked (the selected sound is different from the last selected sound), a new Howl will be loaded, 
     otherwise, the sound will be played without having to load a new Howl*/
     
@@ -116,8 +116,6 @@ class Browse extends Component {
    
     else {
       console.log("some error happened") //This should never happen
-      console.log(this.state.sound)
-      console.log(this.state.lastSound)
     }
   }
 
@@ -153,6 +151,20 @@ getFilePart = (filePath, part) => { //runs 3 times, can I reduce? ---TODO
   }
 }
 
+getFileUploader = (filePath) => {
+  let name = "none"
+  API.getFileUploader(filePath)
+  .then(soundInfo => {
+    if (soundInfo.data != null) {
+    //console.log(soundInfo.data)
+    API.getUploaderByID(soundInfo) //You could have just given the name in the first api call instead of the id. Would've been a lot simpler.
+    .then(res => { name = res.data.userName}) //really close, just have to return it
+  }
+  else { name = "unknown"} //this does not run
+  })
+  return name //this runs
+}
+
   // Map over this.state.cards and render a Card component for each card object
   render() {
     return (
@@ -172,6 +184,7 @@ getFilePart = (filePath, part) => { //runs 3 times, can I reduce? ---TODO
         {this.state.soundURLs.map((sounds, i) => (
           <Card
             key={i}
+            user={this.getFileUploader(sounds.Key)}
             fileType={this.getFilePart(sounds.Key, "type")}
             name={this.getFilePart(sounds.Key, "name")}
             uploadDate={this.getFilePart(sounds.Key, "date")}
