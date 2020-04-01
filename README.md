@@ -1,8 +1,8 @@
-## Warning:
- For others cloning this at it's current state, as this project is currently under-development, it is not going to be completely functional. I have a very minimalist navbar setup for navigation during development. Most pages are not done and look very ugly and not fully functional, you have been warned.
-
 # sound-community
 An online community-driven soundboard, constantly expanding it's catalog of sound effects uploaded by other users. For use in short movies, animations, or just for fun.
+
+## Deployed version
+https://sound-community.herokuapp.com/
 
 ## Development experience
 
@@ -10,25 +10,24 @@ I had the idea of an online user-driven soundboard while I was still in my codin
  to work on in order to maintain my skills as a full stack developer, I also wanted to build a MERN stack app without a group to showcase that I am able to develop 
  full stack apps on my own.
 
-    The first piece of functionality that I had to deal with was the main focus of any soundboard: getting the sounds to actually play when clicking them.
+The first piece of functionality that I had to deal with was the main focus of any soundboard: getting the sounds to actually play when clicking them.
  For this I used howler.js, It allowed me to play any audio file that I provide to it, I tested with in app files I recorded, I first had to decide how I wanted 
  the soundboard to function; I knew I wanted to have "cards" to represent each sound effect, complete with an image of a play button, the name of the sound, the date it was uploaded, and by who it was uploaded, when the card is clicked the sound plays; my decision was between allowing multiple sounds to play at once and stopping them with a second click on the same card or clicking a second card stops the first sound. I originally tried it the first way, but it was filled with bugs and broke easily due to the way howler.js was meant to function. The second method took a few tries and a whiteboard to perfect but I was really happy with the result. It was my first real step to creating the soundboard that had only been an idea months prior.
 
-    The next step was the second big piece of functionality, arguably a lot bigger than the first: getting a bunch of sounds dynamically with a searchbar and being able to add to the pool of 
+The next step was the second big piece of functionality, arguably a lot bigger than the first: getting a bunch of sounds dynamically with a searchbar and being able to add to the pool of 
 sound files to search from, I will break this down into 4 parts: Uploading the files to the filesystem, Retrieving the files from the filesystem, Searching for files with a dynamic searchbar, and playing the sound files retrieved. 
-    First I needed a filesystem to store the sounds in, after researching the different options I chose Amazon web services S3 for this because it seemed like the cheapest route. This was the 
+
+First I needed a filesystem to store the sounds in, after researching the different options I chose Amazon web services S3 for this because it seemed like the cheapest route. This was the 
 most difficult obstacle in development because nobody I could find had done something similar to what I was attempting and I had to look up multiple tutorials (videos and articles) to figure out different parts of the uploading process; and combine them until I was finally able to see my files in the S3 bucket.
-    The next step was to retrieve the files from the filesystem; this began as more watching and reading tutorials until I found in the comment section of one article, someone with a similar 
+
+The next step was to retrieve the files from the filesystem; this began as more watching and reading tutorials until I found in the comment section of one article, someone with a similar 
 problem to me! and better yet, someone who answered their question!! Turned out what I needed to do was set my bucket to public and also copy/paste some stuff into a couple places, after that and following the only video on youtube about retrieving files from an AWS S3 bucket, I was able to console.log out the file I retrieved.
-    After this I needed to actually play the file I got back from the filesystem, for which I created a temporary "download" page where I would store an image in the S3 bucket and then retrieve 
+
+After this I needed to actually play the file I got back from the filesystem, for which I created a temporary "download" page where I would store an image in the S3 bucket and then retrieve 
 it and set it to replace an image's source for ease of telling if I could actually use the file retrieved. Luckily it was as simple as passing the url into the source via setState and it worked flawlessly. I then in a not so short process took that concept and passed it to howler.js as a sound's source.
-    In doing that I also completed the step of being able to dynamically search for sounds by making an api call with every keystroke from the searchbar utilizing AWS's api; s3.listObjectsV2, 
+
+In doing that I also completed the step of being able to dynamically search for sounds by making an api call with every keystroke from the searchbar utilizing AWS's api; s3.listObjectsV2, 
 something I found in another comment section of an article. As that was finally done I was then able to turn my attention toward the design and UX.
-
-
-
-## Deployed version
-https://sound-community.herokuapp.com/
 
 ## Installing and running locally
 Clone the repo using HTTPS:
