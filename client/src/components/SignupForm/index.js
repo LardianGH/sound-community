@@ -27,6 +27,7 @@ handleInputChange = event => { //Allows the textboxes to be used.
 render() {
     return(
         <form           className="Signup">
+            <h2>Signup</h2>
             <input type="hidden" value="something"/>
                         <div className="fieldWrapper">
                         <p>Username</p>

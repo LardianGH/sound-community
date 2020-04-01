@@ -3,7 +3,8 @@ import API from "../utils/API";
 import Navbar from "../components/Navbar";
 import Wrapper from "../components/Wrapper";
 import $ from 'jquery';
-
+import "./style.css";
+// Move the jsx to it's own component and move the style.css to it's own folder.
 class Home extends Component {
 
 	state = {
@@ -75,7 +76,11 @@ singleFileChangedHandler = ( event ) => {
 					}
 				}).catch( ( error ) => {
 				// If another error
+				if (error == 'Error: Request failed with status code 422') {				
+					this.ocShowAlert("File must be .mp3, .wav, or .m4a", 'red');
+				} else {
 				this.ocShowAlert( error, 'red' );
+				}
 			});
 		} else {
 			// if file not selected throw error
@@ -110,13 +115,12 @@ singleFileChangedHandler = ( event ) => {
 				{/* For Alert box*/}
 				<div id="oc-alert-container"></div>
 				{/* Single File Upload*/}
-				<div>
+				<div className="upload">
 					<div className="card-Header">
-						<h3 style={{ color: '#fff', marginLeft: '12px' }}>Single Image Upload</h3>
-						<p className="text-muted" style={{ marginLeft: '12px' }}>Upload Size: 250px x 250px ( Max 2MB )</p>
+					<h2>Upload Audio File</h2>
+						<p className="size-limit" >Max Upload Size: (2MB)</p>
 					</div>
 					<div className="card-body">
-						<p className="card-text">Please upload an image for your profile</p>
 						<input type="file" onChange={this.singleFileChangedHandler}/>
 						<div className="mt-5">
 							<button className="btn btn-info" onClick={this.singleFileUploadHandler}>Upload!</button>

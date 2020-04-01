@@ -21,11 +21,12 @@ handleInputChange = event => { //Allows the textboxes to be used.
 render() {
     return(
         <form className="Login">
+          <h2>Login</h2>
                     <div className="fieldWrapper">
                     <p>Username</p>
                       <div></div>
                         <input className="field"
-                        name="userName"
+                        name="userName" 
                         type="text" 
                         placeholder="EX: Kylester3422"
                         value={this.state.name}
@@ -48,7 +49,7 @@ render() {
                     <button 
                     type="submit"
                     onClick={e => this.props.handleSubmit(e, this.state.userName, this.state.password)} //when this button is clicked, it submits the form
-                    className="ui big button">
+                    className="loginButton">
                         <i className="signup icon"></i>
                         Log in
                     </button>

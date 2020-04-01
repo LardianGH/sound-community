@@ -1,0 +1,15 @@
+.upload {
+    margin-top: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: outset;
+    border-width: 2px;
+    width: fit-content;
+    text-align: center;
+    background-color: whitesmoke;
+    height: auto;
+}
+
+.size-limit {
+    color: orangered;
+}

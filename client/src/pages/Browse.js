@@ -151,18 +151,23 @@ getFilePart = (filePath, part) => { //runs 3 times, can I reduce? ---TODO
   }
 }
 
+getUploaderByID = (soundInfo) => {
+  console.log("name") 
+  API.getUploaderByID(soundInfo) //You could have just given the name in the first api call instead of the id. Would've been a lot simpler.
+  .then(res => { return(res.data.userName)}) //really close, just have to return it
+}
+
 getFileUploader = (filePath) => {
-  let name = "none"
+
   API.getFileUploader(filePath)
   .then(soundInfo => {
     if (soundInfo.data != null) {
     //console.log(soundInfo.data)
-    API.getUploaderByID(soundInfo) //You could have just given the name in the first api call instead of the id. Would've been a lot simpler.
-    .then(res => { name = res.data.userName}) //really close, just have to return it
+    this.getUploaderByID(soundInfo)
+    return ("whatever")
   }
-  else { name = "unknown"} //this does not run
+  else { return("unknown")} //this does not run
   })
-  return name //this runs
 }
 
   // Map over this.state.cards and render a Card component for each card object
@@ -184,7 +189,7 @@ getFileUploader = (filePath) => {
         {this.state.soundURLs.map((sounds, i) => (
           <Card
             key={i}
-            user={this.getFileUploader(sounds.Key)}
+            //user={this.getFileUploader(sounds.Key)}
             fileType={this.getFilePart(sounds.Key, "type")}
             name={this.getFilePart(sounds.Key, "name")}
             uploadDate={this.getFilePart(sounds.Key, "date")}
