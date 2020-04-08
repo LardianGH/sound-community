@@ -11,14 +11,14 @@ require('dotenv').config(); // Configure dotenv to load in the .env file
 
 module.exports = {
 
-  findCookie: function(req, res) {
-    if(req.session.userName) {
-        res.json(req.session)
-    }
-    else {
-      console.log("no username saved")
-    }
-      },
+findCookie: function(req, res) {
+  if(req.session.userName) {
+      res.json(req.session)
+  }
+  else {
+    console.log("no username saved")
+  }
+    },
 
 createUser: function(req, res) {
   console.log("req.hey")

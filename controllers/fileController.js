@@ -82,6 +82,7 @@ const s3 = new aws.S3({
                 db.Sound
                 .create({
                   fileKey,
+                  userName: user.userName,
                   userID: user._id
                 })
                 .then(dbModel => res.json(dbModel))

@@ -6,6 +6,7 @@ const soundSchema = new Schema({ //each part seperated for specific searches
     //fileName: { type: String, required: true }, //just name
     //fileDate: { type: String, required: true }, //just fileDate
     //fileType:  { type: String, required: true }, //just fileType
+    userName: { type: String, required: true }, //links to user
     userID: { type: String, required: true } //links to user
 });
 

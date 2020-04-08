@@ -1,17 +1,20 @@
 .Login {
-    margin-top: 90px;
+    margin-top: 130px;
     margin-left: auto;
     margin-right: auto;
-    border-style: outset;
-    border-width: 2px;
+    border-style: none;
+    border-top: solid;
+    border-width: 7px;
     width: fit-content;
     text-align: center;
+    border-color: #33C55E;
     background-color: whitesmoke;
     height: auto;
+    transform: scale(1.3);
     }
 
     .fieldWrapper {
-        padding: 40px;
+        padding: 25px;
     }
 
     .changeForm {
@@ -20,30 +23,35 @@
     
     .field {
         width: 200px;
-        padding-left: 5px;
-        padding-right: 5px;
-        border: none;
-        border-bottom: solid;
-        border-color: gray;
+        padding: 5px;
+        border-style: solid;
+        border-radius: 4px;
         background-color: whitesmoke;
         text-align: center;
     }
 
-    h2 {
-        background-image: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pf-chim-036.jpg?w=800&dpr=1&fit=default&crop=default&auto=format&fm=pjpg&q=75&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=d6568c05cc9cea4ae46605f588832e35);
-        color: white;
+    .formTitle {
         padding-bottom: 7px;
-        font-size: 40px;
+        font-size: 25px;
+        font-weight: 1px;
+    }
+
+    .fieldClass {
+        font-size: 18px;
+        font-weight: 700;
+        float: left;
+        padding: 2px;
+        color: rgb(58, 57, 51);
     }
 
     .loginButton {
         width: 200px;
         border-radius: 10px;
         padding: 5px;
-        background-color: rgb(66, 143, 190);
+        background-color: #C4C059;
         border-style: none;
     }
     
     .loginButton:hover {
-        background-color: rgb(42, 93, 124);
+        background-color: #A87041;
     }

@@ -21,9 +21,9 @@ handleInputChange = event => { //Allows the textboxes to be used.
 render() {
     return(
         <form className="Login">
-          <h2>Login</h2>
+           <div className="formTitle"><h2>Login</h2></div>
                     <div className="fieldWrapper">
-                    <p>Username</p>
+                    <div className="fieldClass">Username</div>
                       <div></div>
                         <input className="field"
                         name="userName" 
@@ -35,7 +35,7 @@ render() {
                         <i className="user icon"></i>
                     </div>
                     <div className="fieldWrapper">
-                    <p>Password</p>
+                    <div className="fieldClass">Password</div>
                       <div></div>
                         <input className="field"
                         name="password"
@@ -51,7 +51,7 @@ render() {
                     onClick={e => this.props.handleSubmit(e, this.state.userName, this.state.password)} //when this button is clicked, it submits the form
                     className="loginButton">
                         <i className="signup icon"></i>
-                        Log in
+                        Log In
                     </button>
 
                       <div className="changeForm">

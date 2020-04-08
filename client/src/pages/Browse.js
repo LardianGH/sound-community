@@ -151,6 +151,7 @@ getFilePart = (filePath, part) => { //runs 3 times, can I reduce? ---TODO
   }
 }
 
+/*
 getUploaderByID = (soundInfo) => {
   console.log("name") 
   API.getUploaderByID(soundInfo) //You could have just given the name in the first api call instead of the id. Would've been a lot simpler.
@@ -167,6 +168,22 @@ getFileUploader = (filePath) => {
     return ("whatever")
   }
   else { return("unknown")} //this does not run
+  })
+}
+*/
+getFileUploader = (filePath) => {
+let answer = "unknown"
+  API.getFileUploader(filePath)
+  .then(soundInfo => {
+    console.log(soundInfo.data.userName)
+    answer = soundInfo.data.userName
+    console.log(answer)
+    return answer
+  })
+  .then( answer => {
+    console.log(answer)
+    console.log(this)
+  return answer
   })
 }
 
@@ -189,13 +206,13 @@ getFileUploader = (filePath) => {
         {this.state.soundURLs.map((sounds, i) => (
           <Card
             key={i}
-            //user={this.getFileUploader(sounds.Key)}
+            user={this.getFileUploader(sounds.Key)}
             fileType={this.getFilePart(sounds.Key, "type")}
             name={this.getFilePart(sounds.Key, "name")}
             uploadDate={this.getFilePart(sounds.Key, "date")}
             soundSetup={this.soundSetup}
             sound={"https://" + this.state.bucketName + ".s3." + this.state.bucketRegion + ".amazonaws.com/" + sounds.Key}
-            image={"https://lh3.googleusercontent.com/z6Sl4j9zQ88oUKNy0G3PAMiVwy8DzQLh_ygyvBXv0zVNUZ_wQPN_n7EAR2By3dhoUpX7kTpaHjRPni1MHwKpaBJbpNqdEsHZsH4q"}
+            image={'assets/images/greenguy-playbutton.svg'}
           />
         ))}
         </Scroll>

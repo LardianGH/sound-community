@@ -76,7 +76,7 @@ singleFileChangedHandler = ( event ) => {
 					}
 				}).catch( ( error ) => {
 				// If another error
-				if (error == 'Error: Request failed with status code 422') {				
+				if (error === 'Error: Request failed with status code 422') {				
 					this.ocShowAlert("File must be .mp3, .wav, or .m4a", 'red');
 				} else {
 				this.ocShowAlert( error, 'red' );
