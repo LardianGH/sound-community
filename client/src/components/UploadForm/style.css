@@ -1,0 +1,66 @@
+.upload {
+    margin-top: 230px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: none;
+    border-top: solid;
+    border-width: 4px;
+    border-color: rgb(218, 138, 33);
+    width: fit-content;
+    text-align: center;
+    background-color: whitesmoke;
+    height: auto;
+    padding: 10px;
+    transform: scale(2);
+}
+
+.size-limit {
+    font-size: 9px;
+}
+
+.social-distance {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.size-limit {
+    color: orangered;
+}
+
+.uploadButton {
+    margin: 2px;
+    width: 150px;
+    height: 50px;
+    background-color: orangered;
+    border-style: solid;
+    border-color: yellow;
+}
+
+.uploadButton:hover {
+    background-color: rgb(165, 47, 4);
+    cursor: pointer;
+}
+
+.HiddenInput {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.HiddenInput + label {
+    cursor: pointer;
+    font-size: 28px;
+    padding: 5px;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+}
+
+.HiddenInput:focus + label,
+.HiddenInput + label:hover {
+    background-color: red;
+}

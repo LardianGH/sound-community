@@ -2,21 +2,24 @@ import React, { Component } from 'react';
 import API from "../utils/API";
 import Navbar from "../components/Navbar";
 import Wrapper from "../components/Wrapper";
+import UploadForm from "../components/UploadForm";
 import $ from 'jquery';
-import "./style.css";
 // Move the jsx to it's own component and move the style.css to it's own folder.
 class Home extends Component {
 
 	state = {
 		selectedFile: null,
+		labelFile: " Choose a file",
 		returnedName: "",
 		returnedEmail: "",
 		returnedID: ""
 	}
 
 singleFileChangedHandler = ( event ) => {
+	console.log(event.target.files[0].name)
 	this.setState({
-		selectedFile: event.target.files[0]
+		selectedFile: event.target.files[0],
+		labelFile: " " + event.target.files[0].name
 	});
 };
 
@@ -110,23 +113,16 @@ singleFileChangedHandler = ( event ) => {
 			
 				<Navbar>
         	</Navbar>
-		{this.state.returnedName}
-		{this.state.returnedID}
+
 				{/* For Alert box*/}
 				<div id="oc-alert-container"></div>
 				{/* Single File Upload*/}
-				<div className="upload">
-					<div className="card-Header">
-					<h2>Upload Audio File</h2>
-						<p className="size-limit" >Max Upload Size: (2MB)</p>
-					</div>
-					<div className="card-body">
-						<input type="file" onChange={this.singleFileChangedHandler}/>
-						<div className="mt-5">
-							<button className="btn btn-info" onClick={this.singleFileUploadHandler}>Upload!</button>
-						</div>
-					</div>
-				</div>
+				<UploadForm
+				labelFile = {this.state.labelFile}
+				singleFileUploadHandler = {this.singleFileUploadHandler}
+				singleFileChangedHandler = {this.singleFileChangedHandler}
+				>
+				</UploadForm>
 			</Wrapper>
 		);
 	}
